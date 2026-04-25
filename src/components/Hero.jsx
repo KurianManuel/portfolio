@@ -7,18 +7,18 @@ const Hero = ({ scrollToSection }) => {
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
       {/* Animated background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Security Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-6 animate-fade-in">
-          <Shield className="text-red-400" size={20} />
-          <span className="text-red-300 text-sm font-medium">Cybersecurity Student</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-6 animate-fade-in">
+          <Shield className="text-blue-400" size={20} />
+          <span className="text-blue-300 text-sm font-medium">Cybersecurity Student</span>
         </div>
         
-        <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-red-400 via-orange-500 to-red-600 bg-clip-text text-transparent animate-fade-in">
+        <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-emerald-500 to-blue-600 bg-clip-text text-transparent animate-fade-in">
           {portfolioData.name}
         </h1>
         
@@ -37,7 +37,7 @@ const Hero = ({ scrollToSection }) => {
         <div className="flex gap-4 justify-center flex-wrap">
           <button
             onClick={() => scrollToSection('projects')}
-            className="px-10 py-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-full font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all hover:-translate-y-1"
+            className="px-10 py-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all hover:-translate-y-1"
           >
             {portfolioData.hero.ctaPrimary}
           </button>

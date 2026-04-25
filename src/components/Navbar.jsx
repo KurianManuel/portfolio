@@ -4,7 +4,7 @@ import { portfolioData } from '../data/portfolioData';
 
 
 const Navbar = ({ activeSection, scrollToSection }) => {
-  const navItems = ['home', 'about', 'projects', 'contact'];
+  const navItems = ['home', 'about', 'skills', 'education', 'experience', 'projects', 'contact'];
 
   return (
     <nav className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm border-b border-white/5 z-50">
@@ -17,8 +17,8 @@ const Navbar = ({ activeSection, scrollToSection }) => {
           />
           
           {/* Navigation Links */}
-          <div className="flex items-center gap-12">
-            <ul className="hidden md:flex items-center gap-10">
+          <div className="flex items-center gap-6">
+            <ul className="hidden md:flex items-center gap-5">
               {navItems.map((section) => (
                 <li key={section}>
                   <button

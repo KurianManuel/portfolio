@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
@@ -17,10 +17,20 @@ const HackTheBoxIcon = () => (
 );
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(portfolioData.contact.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+    window.location.href = `mailto:${portfolioData.contact.email}`;
+  };
+
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-red-400 to-orange-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-emerald-500 bg-clip-text text-transparent">
           {portfolioData.contact.title}
         </h2>
         
@@ -28,24 +38,24 @@ const Contact = () => {
           {portfolioData.contact.description}
         </p>
         
-        <p className="text-sm text-red-400 mb-12 font-medium">
+        <p className="text-sm text-blue-400 mb-12 font-medium">
           {portfolioData.contact.available}
         </p>
         
-        <a
-          href={`mailto:${portfolioData.contact.email}`}
-          className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-full font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all hover:-translate-y-1"
+        <button
+          onClick={handleEmailClick}
+          className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full font-semibold text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all hover:-translate-y-1 cursor-pointer"
         >
           <Mail size={20} />
-          Send Me an Email
-        </a>
+          {copied ? "Email Copied!" : "Send Me an Email"}
+        </button>
         
         <div className="flex justify-center gap-6 mt-12 flex-wrap">
           <a
             href={portfolioData.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:border-transparent transition-all hover:-translate-y-1"
+            className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
             aria-label="GitHub"
           >
             <Github size={24} />
@@ -54,7 +64,7 @@ const Contact = () => {
             href={portfolioData.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:border-transparent transition-all hover:-translate-y-1"
+            className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
             aria-label="LinkedIn"
           >
             <Linkedin size={24} />
@@ -64,7 +74,7 @@ const Contact = () => {
               href={portfolioData.social.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:border-transparent transition-all hover:-translate-y-1"
+              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
               aria-label="Twitter"
             >
               <Twitter size={24} />
@@ -75,7 +85,7 @@ const Contact = () => {
               href={portfolioData.social.tryhackme}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:border-transparent transition-all hover:-translate-y-1"
+              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
               aria-label="TryHackMe"
             >
               <TryHackMeIcon />
@@ -86,7 +96,7 @@ const Contact = () => {
               href={portfolioData.social.hackthebox}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:border-transparent transition-all hover:-translate-y-1"
+              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
               aria-label="HackTheBox"
             >
               <HackTheBoxIcon />

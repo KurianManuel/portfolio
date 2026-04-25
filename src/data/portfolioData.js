@@ -2,10 +2,10 @@
 
 export const portfolioData = {
   // Basic Info
-  name: "Your Name",
+  name: "Kurian Manuel",
   role: "Cybersecurity Student",
   location: "Kerala, India",
-  
+
   // Hero Section
   hero: {
     title: "Cybersecurity Student & Developer",
@@ -14,7 +14,7 @@ export const portfolioData = {
     ctaPrimary: "View Projects",
     ctaSecondary: "Contact Me"
   },
-  
+
   // About Section
   about: {
     title: "About Me",
@@ -24,7 +24,7 @@ export const portfolioData = {
       "When I'm not studying security concepts or hacking on vulnerable machines, you'll find me contributing to open-source security projects, reading security blogs, or exploring new vulnerabilities in TryHackMe and HackTheBox."
     ]
   },
-  
+
   // Skills - Cybersecurity Focused
   skills: {
     title: "Skills & Tools",
@@ -32,23 +32,19 @@ export const portfolioData = {
       {
         category: "Security Skills",
         items: [
-          "Penetration Testing",
-          "Vulnerability Assessment",
           "Network Security",
           "Web Application Security",
           "Cryptography",
-          "Security Auditing"
+          "Web Development"
         ]
       },
       {
         category: "Security Tools",
         items: [
           "Kali Linux",
-          "Metasploit",
           "Burp Suite",
           "Wireshark",
-          "Nmap",
-          "OWASP ZAP"
+          "Nmap"
         ]
       },
       {
@@ -57,8 +53,8 @@ export const portfolioData = {
           "Python",
           "Bash Scripting",
           "JavaScript",
+          "Java",
           "SQL",
-          "PowerShell",
           "C/C++"
         ]
       },
@@ -68,22 +64,21 @@ export const portfolioData = {
           "HTML/CSS",
           "React",
           "Node.js",
-          "REST APIs",
           "Git",
           "Linux"
         ]
       }
     ]
   },
-  
+
   // Education
   education: {
     title: "Education",
-    degree: "Bachelor of Technology in Cybersecurity",
-    university: "Your University Name",
+    degree: "Bachelor of Technology",
+    university: "APJ Abdul Kalam Technological University",
     location: "Kerala, India",
-    duration: "2022 - 2026",
-    gpa: "8.5/10",
+    duration: "2023 - 2027",
+    gpa: "6.2/10",
     relevantCourses: [
       "Network Security",
       "Ethical Hacking",
@@ -93,149 +88,50 @@ export const portfolioData = {
       "Operating System Security"
     ]
   },
-  
-  // Certifications
-  certifications: [
-    {
-      name: "CEH - Certified Ethical Hacker",
-      issuer: "EC-Council",
-      status: "In Progress"
-    },
-    {
-      name: "CompTIA Security+",
-      issuer: "CompTIA",
-      status: "Planning"
-    },
-    {
-      name: "TryHackMe",
-      issuer: "TryHackMe",
-      status: "Active Learner"
-    }
-  ],
-  
+
   // Projects - Security Focused
   projects: [
     {
-      title: "Vulnerability Scanner",
-      description: "Python-based automated vulnerability scanner that identifies common security issues in web applications including SQL injection, XSS, and CSRF vulnerabilities.",
-      icon: "🔍",
-      tags: ["Python", "Security", "Web Security", "Automation"],
-      github: "https://github.com/yourusername/vulnerability-scanner",
-      demo: "#",
+      title: "Metadata Cleaner",
+      description: "A fast and secure web application that removes EXIF data and metadata from your images, protecting your privacy online — powered by Python & Flask.",
+      icon: "🖼️",
+      tags: ["Python", "Flask", "Security", "Web Development"],
+      github: "https://github.com/KurianManuel/metadata-cleaner",
+      demo: "https://metadatacleaner.vercel.app",
       category: "security"
     },
     {
-      title: "Password Strength Analyzer",
-      description: "Tool that analyzes password strength using entropy calculation, common pattern detection, and dictionary attacks to help users create stronger passwords.",
-      icon: "🔐",
-      tags: ["Python", "Cryptography", "Security"],
-      github: "https://github.com/yourusername/password-analyzer",
+      title: "Travel Router Firewall",
+      description: "Raspberry Pi-based portable VPN gateway with USB Ethernet access, fail-closed firewall, and advanced network security monitoring to auto-detect MITM attacks.",
+      icon: "🛡️",
+      tags: ["Python", "Networking", "Security", "Linux"],
+      github: "https://github.com/KurianManuel/travel-router-project",
       demo: "#",
       category: "security"
-    },
-    {
-      title: "Network Traffic Analyzer",
-      description: "Real-time network traffic monitoring tool built with Python and Scapy to detect suspicious activities and potential security threats.",
-      icon: "🌐",
-      tags: ["Python", "Networking", "Scapy", "Security"],
-      github: "https://github.com/yourusername/network-analyzer",
-      demo: "#",
-      category: "security"
-    },
-    {
-      title: "CTF Writeups Collection",
-      description: "Comprehensive collection of Capture The Flag challenge writeups from various platforms including TryHackMe, HackTheBox, and CTF competitions.",
-      icon: "🚩",
-      tags: ["CTF", "Penetration Testing", "Documentation"],
-      github: "https://github.com/yourusername/ctf-writeups",
-      demo: "#",
-      category: "security"
-    },
-    {
-      title: "Secure File Transfer App",
-      description: "End-to-end encrypted file sharing application using AES encryption and secure key exchange protocols to ensure data confidentiality.",
-      icon: "📁",
-      tags: ["Python", "Cryptography", "Flask", "Security"],
-      github: "https://github.com/yourusername/secure-transfer",
-      demo: "#",
-      category: "development"
-    },
-    {
-      title: "Portfolio Website",
-      description: "This responsive portfolio website built with React and Tailwind CSS, showcasing my projects and skills in cybersecurity and web development.",
-      icon: "💼",
-      tags: ["React", "Tailwind CSS", "JavaScript"],
-      github: "https://github.com/yourusername/portfolio",
-      demo: "https://yourportfolio.vercel.app",
-      category: "development"
     }
   ],
-  
+
   // Experience
   experience: [
-    {
-      title: "Security Research Intern",
-      company: "Company Name",
-      location: "Remote",
-      duration: "Jun 2024 - Aug 2024",
-      description: [
-        "Conducted vulnerability assessments on web applications",
-        "Documented security findings and provided remediation recommendations",
-        "Participated in security code reviews and testing"
-      ]
-    },
-    {
-      title: "CTF Team Member",
-      company: "University Cybersecurity Club",
-      location: "Your University",
-      duration: "2023 - Present",
-      description: [
-        "Compete in national and international CTF competitions",
-        "Collaborate with team members to solve security challenges",
-        "Mentor junior students in cybersecurity concepts"
-      ]
-    }
   ],
-  
-  // Achievements
-  achievements: [
-    {
-      title: "Top 10% on TryHackMe",
-      description: "Ranked in top 10% globally on TryHackMe platform",
-      date: "2024"
-    },
-    {
-      title: "CTF Winner",
-      description: "Won 1st place in University Cybersecurity CTF Competition",
-      date: "2024"
-    },
-    {
-      title: "Bug Bounty",
-      description: "Discovered and reported security vulnerability in open-source project",
-      date: "2023"
-    }
-  ],
-  
+
   // Contact
   contact: {
     title: "Get In Touch",
     description: "I'm always open to discussing cybersecurity projects, collaboration opportunities, or just talking about security. Feel free to reach out!",
-    email: "your.email@example.com",
+    email: "kurianmanuel.2288@gmail.com",
     available: "Available for internships and freelance security projects"
   },
-  
+
   // Social Links
   social: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
-    tryhackme: "https://tryhackme.com/p/yourusername",
-    hackthebox: "https://app.hackthebox.com/profile/yourusername",
-    email: "your.email@example.com"
+    github: "https://github.com/KurianManuel",
+    linkedin: "https://www.linkedin.com/in/kurian-manuel/",
+    email: "kurianmanuel.2288@gmail.com"
   },
-  
+
   // Footer
   footer: {
-    text: "© 2025 Your Name. Built with React & Tailwind CSS. Secured with ❤️"
+    text: "© 2025 Kurian Manuel. Built with React & Tailwind CSS. Secured with ❤️"
   }
 };

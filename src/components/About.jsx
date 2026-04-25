@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-red-400 to-orange-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-emerald-500 bg-clip-text text-transparent">
           {portfolioData.about.title}
         </h2>
         

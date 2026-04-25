@@ -4,9 +4,8 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Education from './components/Education';
-import Certifications from './components/Certifications';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
-import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -16,7 +15,7 @@ function App() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'education', 'certifications', 'projects', 'achievements', 'contact'];
+      const sections = ['home', 'about', 'skills', 'education', 'experience', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -52,9 +51,8 @@ function App() {
       <About />
       <Skills />
       <Education />
-      <Certifications />
+      <Experience />
       <Projects />
-      <Achievements />
       <Contact />
       <Footer />
     </div>

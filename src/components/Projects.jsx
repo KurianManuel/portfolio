@@ -12,7 +12,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-8 bg-gradient-to-r from-red-400 to-orange-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-emerald-500 bg-clip-text text-transparent">
           Featured Projects
         </h2>
         
@@ -22,7 +22,7 @@ const Projects = () => {
             onClick={() => setFilter('all')}
             className={`px-6 py-2 rounded-full font-medium transition-all ${
               filter === 'all'
-                ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-emerald-500 text-white'
                 : 'bg-white/5 text-slate-400 hover:bg-white/10'
             }`}
           >
@@ -32,7 +32,7 @@ const Projects = () => {
             onClick={() => setFilter('security')}
             className={`px-6 py-2 rounded-full font-medium transition-all ${
               filter === 'security'
-                ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-emerald-500 text-white'
                 : 'bg-white/5 text-slate-400 hover:bg-white/10'
             }`}
           >
@@ -42,7 +42,7 @@ const Projects = () => {
             onClick={() => setFilter('development')}
             className={`px-6 py-2 rounded-full font-medium transition-all ${
               filter === 'development'
-                ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-emerald-500 text-white'
                 : 'bg-white/5 text-slate-400 hover:bg-white/10'
             }`}
           >
@@ -54,10 +54,10 @@ const Projects = () => {
           {filteredProjects.map((project, idx) => (
             <div
               key={idx}
-              className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-red-500/50 hover:-translate-y-2 transition-all group"
+              className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 hover:-translate-y-2 transition-all group"
             >
               {/* Project Icon */}
-              <div className="h-48 bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-6xl relative overflow-hidden">
+              <div className="h-48 bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center text-6xl relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all"></div>
                 <span className="relative z-10">{project.icon}</span>
               </div>
@@ -99,7 +99,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
-                      className="px-3 py-1 bg-red-500/20 text-red-300 text-xs rounded-full border border-red-500/30"
+                      className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30"
                     >
                       {tag}
                     </span>

@@ -8,15 +8,15 @@ const Education = () => {
   return (
     <section id="education" className="py-24 px-6 bg-slate-800/30">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-red-400 to-orange-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-emerald-500 bg-clip-text text-transparent">
           {education.title}
         </h2>
         
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-red-500/50 transition-all">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-blue-500/50 transition-all">
             {/* Header */}
             <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
                 <GraduationCap size={32} className="text-white" />
               </div>
               
@@ -59,7 +59,7 @@ const Education = () => {
                       key={idx}
                       className="flex items-center gap-2 text-slate-300"
                     >
-                      <div className="w-1.5 h-1.5 bg-red-400 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
                       <span>{course}</span>
                     </div>
                   ))}
