@@ -1,111 +1,47 @@
-import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { Mail, Github, Linkedin, ArrowUpRight } from 'lucide-react'
+import { portfolioData } from '../data/portfolioData'
+import { useReveal } from '../hooks/useReveal'
 
-// Custom TryHackMe icon component
-const TryHackMeIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-    <path d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0-4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a.625.625 0 1 0 0-1.25H4.761a3.273 3.273 0 0 1-3.27-3.27 3.273 3.273 0 0 1 3.053-3.26.625.625 0 0 0 .54-.694A3.892 3.892 0 0 1 10.705 1.25a3.892 3.892 0 0 1 3.828 3.307.626.626 0 0 0 .616.524h.343a2.712 2.712 0 0 1 2.709 2.71 2.712 2.712 0 0 1-2.71 2.709h-2.232a.625.625 0 1 0 0 1.25h2.233a3.963 3.963 0 0 0 3.959-3.959 3.963 3.963 0 0 0-3.676-3.949A5.143 5.143 0 0 0 10.705 0zm2.022 13.957a.626.626 0 0 0-.441 1.067l3.42 3.42-3.42 3.42a.626.626 0 0 0 .884.884l3.862-3.863a.626.626 0 0 0 0-.884l-3.862-3.862a.626.626 0 0 0-.443-.182z"/>
-  </svg>
-);
-
-// Custom HackTheBox icon component  
-const HackTheBoxIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-    <path d="M11.996 0a1.119 1.119 0 0 0-.057.003.915.915 0 0 0-.206.035l-9.75 3.25a1.118 1.118 0 0 0-.751 1.056v11.312a1.118 1.118 0 0 0 .75 1.056l9.75 3.25a1.116 1.116 0 0 0 .53 0l9.75-3.25a1.118 1.118 0 0 0 .75-1.056V4.344a1.118 1.118 0 0 0-.75-1.056l-9.75-3.25a1.118 1.118 0 0 0-.26-.038zm0 2.147l6.75 2.25-6.75 2.25-6.75-2.25zm-8.25 4.5l7.125 2.375v7.5l-7.125-2.375zm16.5 0v7.5l-7.125 2.375v-7.5z"/>
-  </svg>
-);
-
-const Contact = () => {
-  const [copied, setCopied] = useState(false);
-
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(portfolioData.contact.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-    window.location.href = `mailto:${portfolioData.contact.email}`;
-  };
+export default function Contact() {
+  const { contact, social } = portfolioData
+  const { ref, isVisible } = useReveal(0.2)
 
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-emerald-500 bg-clip-text text-transparent">
-          {portfolioData.contact.title}
+    <section id="contact" className="max-w-6xl mx-auto px-6 md:px-8 py-24 md:py-32 border-t border-carbon-700">
+      <span className="section-label">// 07 — contact</span>
+
+      <div
+        ref={ref}
+        className={`transition-all duration-500 ease-premium ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+      >
+        <h2 className="font-sans font-extrabold text-4xl md:text-6xl text-slate-primary mb-6 max-w-2xl leading-[1.05]">
+          Let's talk{' '}
+          <span className="text-lime">security</span>.
         </h2>
-        
-        <p className="text-lg text-slate-300 mb-4 leading-relaxed">
-          {portfolioData.contact.description}
+
+        <p className="font-sans text-base text-slate-secondary max-w-lg mb-10">
+          {contact.description}
         </p>
-        
-        <p className="text-sm text-blue-400 mb-12 font-medium">
-          {portfolioData.contact.available}
-        </p>
-        
-        <button
-          onClick={handleEmailClick}
-          className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full font-semibold text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all hover:-translate-y-1 cursor-pointer"
+
+        <a
+          href={`mailto:${contact.email}`}
+          className="group inline-flex items-center gap-3 font-mono text-lg md:text-2xl text-slate-primary hover:text-lime transition-colors duration-200 ease-snap mb-12"
         >
-          <Mail size={20} />
-          {copied ? "Email Copied!" : "Send Me an Email"}
-        </button>
-        
-        <div className="flex justify-center gap-6 mt-12 flex-wrap">
-          <a
-            href={portfolioData.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
-            aria-label="GitHub"
-          >
-            <Github size={24} />
+          {contact.email}
+          <ArrowUpRight size={22} strokeWidth={1.5} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200 ease-snap" />
+        </a>
+
+        <p className="font-mono text-xs text-lime-muted mb-8">{contact.availability}</p>
+
+        <div className="flex items-center gap-6">
+          <a href={social.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-xs text-slate-muted hover:text-lime transition-colors duration-150">
+            <Github size={16} strokeWidth={1.75} /> github
           </a>
-          <a
-            href={portfolioData.social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={24} />
+          <a href={social.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-xs text-slate-muted hover:text-lime transition-colors duration-150">
+            <Linkedin size={16} strokeWidth={1.75} /> linkedin
           </a>
-          {portfolioData.social.twitter && (
-            <a
-              href={portfolioData.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
-              aria-label="Twitter"
-            >
-              <Twitter size={24} />
-            </a>
-          )}
-          {portfolioData.social.tryhackme && (
-            <a
-              href={portfolioData.social.tryhackme}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
-              aria-label="TryHackMe"
-            >
-              <TryHackMeIcon />
-            </a>
-          )}
-          {portfolioData.social.hackthebox && (
-            <a
-              href={portfolioData.social.hackthebox}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:border-transparent transition-all hover:-translate-y-1"
-              aria-label="HackTheBox"
-            >
-              <HackTheBoxIcon />
-            </a>
-          )}
         </div>
       </div>
     </section>
-  );
-};
-
-export default Contact;
+  )
+}

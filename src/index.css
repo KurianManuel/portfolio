@@ -1,42 +1,101 @@
+@font-face {
+  font-family: 'Syne';
+  src: url('/fonts/Syne-Variable.ttf') format('truetype-variations');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Variable.ttf') format('truetype-variations');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f172a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@layer base {
+  * {
+    @apply selection:bg-lime selection:text-carbon-950;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-carbon-950 text-slate-primary font-sans antialiased;
+    font-feature-settings: "ss01" on, "ss02" on;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-carbon-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-carbon-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-carbon-500;
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Respect reduced motion preference globally */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative font-mono text-xs uppercase tracking-widest text-slate-muted hover:text-slate-primary transition-colors duration-150 ease-snap py-1;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-0 bg-lime transition-all duration-200 ease-snap;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .btn-primary {
+    @apply font-mono text-xs tracking-wide px-6 py-3 rounded-md bg-lime-faint border border-lime-dark text-lime
+           hover:bg-lime hover:text-carbon-950 hover:border-lime
+           transition-all duration-200 ease-snap;
+  }
+
+  .btn-secondary {
+    @apply font-mono text-xs tracking-wide px-6 py-3 rounded-md bg-transparent border border-carbon-600 text-slate-secondary
+           hover:border-slate-muted hover:text-slate-primary
+           transition-all duration-200 ease-snap;
+  }
+
+  .section-label {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-lime-muted mb-4 inline-block;
+  }
+
+  .pill {
+    @apply font-mono text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-carbon-600 text-slate-muted bg-carbon-900;
+  }
 }

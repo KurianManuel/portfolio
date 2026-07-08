@@ -1,76 +1,43 @@
-import React from 'react';
-import { GraduationCap, MapPin, Calendar, BookOpen } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../data/portfolioData'
+import { useReveal } from '../hooks/useReveal'
 
-const Education = () => {
-  const { education } = portfolioData;
+export default function Education() {
+  const { education } = portfolioData
+  const { ref, isVisible } = useReveal(0.2)
 
   return (
-    <section id="education" className="py-24 px-6 bg-slate-800/30">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-emerald-500 bg-clip-text text-transparent">
-          {education.title}
-        </h2>
-        
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-blue-500/50 transition-all">
-            {/* Header */}
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                <GraduationCap size={32} className="text-white" />
-              </div>
-              
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  {education.degree}
-                </h3>
-                <p className="text-xl text-slate-300 mb-3">
-                  {education.university}
-                </p>
-                
-                <div className="flex flex-wrap gap-4 text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <MapPin size={16} />
-                    <span>{education.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar size={16} />
-                    <span>{education.duration}</span>
-                  </div>
-                  {education.gpa && (
-                    <div className="flex items-center gap-2">
-                      <BookOpen size={16} />
-                      <span>GPA: {education.gpa}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-            
-            {/* Relevant Courses */}
-            {education.relevantCourses && (
-              <div className="mt-6 pt-6 border-t border-white/10">
-                <h4 className="text-lg font-semibold text-white mb-4">
-                  Relevant Coursework
-                </h4>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {education.relevantCourses.map((course, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-2 text-slate-300"
-                    >
-                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                      <span>{course}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+    <section id="education" className="max-w-6xl mx-auto px-6 md:px-8 py-24 md:py-32 border-t border-carbon-700">
+      <span className="section-label">// 03 — education</span>
+      <h2 className="font-sans font-bold text-3xl md:text-4xl text-slate-primary mb-12 md:mb-16 max-w-xl">
+        Education
+      </h2>
+
+      <div
+        ref={ref}
+        className={`grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 ease-premium ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+        }`}
+      >
+        <div className="md:col-span-2">
+          <h3 className="font-sans font-bold text-xl md:text-2xl text-slate-primary mb-1">
+            {education.degree}
+          </h3>
+          <p className="font-sans text-sm text-slate-secondary mb-1">{education.field}</p>
+          <p className="font-mono text-xs text-lime-muted mb-1">{education.university}</p>
+          <p className="font-mono text-xs text-slate-muted mb-6">
+            {education.location} · {education.duration}
+          </p>
+
+          <p className="font-mono text-[10px] uppercase tracking-widest text-carbon-500 mb-3">
+            relevant coursework
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {education.relevantCourses.map((course) => (
+              <span key={course} className="pill">{course}</span>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  );
-};
-
-export default Education;
+  )
+}

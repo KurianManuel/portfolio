@@ -1,84 +1,53 @@
-// Cybersecurity Student Portfolio Data
-
 export const portfolioData = {
-  // Basic Info
   name: "Kurian Manuel",
-  role: "Cybersecurity Student",
+  role: "Security Researcher",
   location: "Kerala, India",
 
-  // Hero Section
   hero: {
-    title: "Cybersecurity Student & Developer",
-    subtitle: "Securing the digital world, one line of code at a time",
-    description: "Passionate about cybersecurity, ethical hacking, and building secure applications. Currently pursuing my degree while learning penetration testing, network security, and secure coding practices.",
-    ctaPrimary: "View Projects",
-    ctaSecondary: "Contact Me"
+    eyebrow: "// security researcher",
+    firstName: "Kurian",
+    lastName: "Manuel",
+    roles: ["Network Security", "Digital Forensics", "Secure Systems"],
+    ctaPrimary: "view_projects()",
+    ctaSecondary: "contact.me",
+    accentText: "ECC · VANET · 802.11p",
   },
 
-  // About Section
   about: {
-    title: "About Me",
     paragraphs: [
-      "I'm a cybersecurity student with a passion for understanding how systems work and how to protect them. My journey in tech began with curiosity about how hackers breach systems, which led me to pursue cybersecurity as a career path.",
-      "Currently, I'm focusing on penetration testing, network security, web application security, and secure software development. I enjoy participating in CTF competitions and building security tools to sharpen my skills.",
-      "When I'm not studying security concepts or hacking on vulnerable machines, you'll find me contributing to open-source security projects, reading security blogs, or exploring new vulnerabilities in TryHackMe and HackTheBox."
+      "I'm a cybersecurity student at APJ Abdul Kalam Technological University, focused on network security, digital forensics, and building secure systems. My work spans both academic research and independent development.",
+      "Currently contributing to active research on vehicular network authentication protocols using elliptic curve cryptography — work that involves implementing unpublished academic findings in a real simulation environment.",
+      "Outside of research, I build security tooling, participate in CTF competitions, and explore vulnerabilities across web and network attack surfaces."
     ]
   },
 
-  // Skills - Cybersecurity Focused
   skills: {
-    title: "Skills & Tools",
     categories: [
       {
-        category: "Security Skills",
-        items: [
-          "Network Security",
-          "Web Application Security",
-          "Cryptography",
-          "Web Development"
-        ]
+        category: "Security",
+        items: ["Network Security", "Web Application Security", "Cryptography", "Digital Forensics", "Penetration Testing"]
       },
       {
-        category: "Security Tools",
-        items: [
-          "Kali Linux",
-          "Burp Suite",
-          "Wireshark",
-          "Nmap"
-        ]
+        category: "Tools",
+        items: ["Kali Linux", "Burp Suite", "Wireshark", "Nmap", "Metasploit"]
       },
       {
         category: "Programming",
-        items: [
-          "Python",
-          "Bash Scripting",
-          "JavaScript",
-          "Java",
-          "SQL",
-          "C/C++"
-        ]
+        items: ["Python", "C/C++", "Java", "JavaScript", "Bash", "SQL"]
       },
       {
-        category: "Web Development",
-        items: [
-          "HTML/CSS",
-          "React",
-          "Node.js",
-          "Git",
-          "Linux"
-        ]
+        category: "Development",
+        items: ["React", "Node.js", "Flask", "Linux", "Git"]
       }
     ]
   },
 
-  // Education
   education: {
-    title: "Education",
     degree: "Bachelor of Technology",
+    field: "Computer Science & Engineering",
     university: "APJ Abdul Kalam Technological University",
     location: "Kerala, India",
-    duration: "2023 - 2027",
-    gpa: "6.2/10",
+    duration: "2023 – 2027",
     relevantCourses: [
       "Network Security",
       "Ethical Hacking",
@@ -89,49 +58,99 @@ export const portfolioData = {
     ]
   },
 
-  // Projects - Security Focused
   projects: [
     {
-      title: "Metadata Cleaner",
-      description: "A fast and secure web application that removes EXIF data and metadata from your images, protecting your privacy online — powered by Python & Flask.",
-      icon: "🖼️",
-      tags: ["Python", "Flask", "Security", "Web Development"],
-      github: "https://github.com/KurianManuel/metadata-cleaner",
-      demo: "https://metadatacleaner.vercel.app",
+      id: "vanet",
+      title: "VANET Security Simulation Monitor",
+      tag: "active research",
+      description: "Implementation of an unpublished ECC-based mutual authentication protocol for vehicular ad-hoc networks. Simulates realistic 802.11p DSRC channel conditions — Rayleigh fading, log-normal shadowing, exponential backoff retry — against a three-phase protocol: registration, authentication, and GIFT-algorithm key exchange. Built on ns-3 with a React frontend for real-time metric visualisation.",
+      tags: ["ns-3", "ECC", "802.11p", "DSRC", "React", "TypeScript", "VANET"],
+      github: "https://github.com/KurianManuel/vanet-sim",
+      demo: "https://vanet-sim.vercel.app",
+      private: false,
+      category: "research"
+    },
+    {
+      id: "travel-router",
+      title: "Travel Router Firewall",
+      tag: "hardware · security",
+      description: "Raspberry Pi-based portable security gateway built on a four-layer defense architecture: network layer (evil twin detection, MAC randomisation), ARP layer (continuous gateway MAC monitoring with automatic lockdown on change detection), VPN layer (WireGuard health monitoring with fail-closed kill switch), and application layer (real-time Flask dashboard with live security alerts). Designed to harden untrusted public Wi-Fi connections with zero user configuration.",
+      tags: ["Python", "Linux", "WireGuard", "iptables", "Flask", "Raspberry Pi"],
+      github: "https://github.com/KurianManuel/travel-router-project",
+      demo: null,
+      private: false,
       category: "security"
     },
     {
-      title: "Travel Router Firewall",
-      description: "Raspberry Pi-based portable VPN gateway with USB Ethernet access, fail-closed firewall, and advanced network security monitoring to auto-detect MITM attacks.",
-      icon: "🛡️",
-      tags: ["Python", "Networking", "Security", "Linux"],
-      github: "https://github.com/KurianManuel/travel-router-project",
-      demo: "#",
+      id: "metadata-cleaner",
+      title: "Metadata Cleaner",
+      tag: "web · privacy",
+      description: "Fast, client-side web application that strips EXIF data and embedded metadata from images before they leave the browser. Zero server uploads — all processing happens locally, which is the only architecture that actually protects user privacy.",
+      tags: ["Python", "Flask", "JavaScript", "Security", "Privacy"],
+      github: "https://github.com/KurianManuel/metadata-cleaner",
+      demo: "https://metadatacleaner.vercel.app",
+      private: false,
       category: "security"
     }
   ],
 
-  // Experience
   experience: [
+    {
+      title: "Event Coordinator & Media Team Member",
+      org: "ASTHRA 10.0 — National Level Techfest",
+      duration: "2024",
+      points: [
+        "Coordinated a technical event at a national-level college techfest.",
+        "Created and distributed promotional content across digital platforms.",
+        "Worked across organising teams to ensure smooth event execution."
+      ]
+    },
+    {
+      title: "Marketing Team Member",
+      org: "Computer Society of India (CSI), SJCET",
+      duration: "Sept 2024 – Apr 2025",
+      points: [
+        "Contributed to promotional campaigns for technical events and workshops.",
+        "Improved student engagement through targeted outreach initiatives.",
+        "Managed social media content and event promotion."
+      ]
+    }
   ],
 
-  // Contact
+  certifications: [
+    {
+      name: "Java SE Programming",
+      issuer: "G-TEC Computer Education",
+      year: "2024",
+      type: "training"
+    },
+    {
+      name: "Programming in C++",
+      issuer: "G-TEC Computer Education",
+      year: "2024",
+      type: "training"
+    },
+    {
+      name: "Infosys Springboard",
+      issuer: "Infosys",
+      year: "2024",
+      type: "training"
+    }
+  ],
+
   contact: {
-    title: "Get In Touch",
-    description: "I'm always open to discussing cybersecurity projects, collaboration opportunities, or just talking about security. Feel free to reach out!",
+    description: "Open to internships, research collaborations, and security projects. If you're working on something interesting, reach out.",
     email: "kurianmanuel.2288@gmail.com",
-    available: "Available for internships and freelance security projects"
+    availability: "Available for internships · Open to research collaboration"
   },
 
-  // Social Links
   social: {
     github: "https://github.com/KurianManuel",
     linkedin: "https://www.linkedin.com/in/kurian-manuel/",
     email: "kurianmanuel.2288@gmail.com"
   },
 
-  // Footer
   footer: {
-    text: "© 2025 Kurian Manuel. Built with React & Tailwind CSS. Secured with ❤️"
+    text: "© 2025 Kurian Manuel"
   }
-};
+}

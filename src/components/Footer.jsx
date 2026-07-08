@@ -1,14 +1,11 @@
-import React from 'react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../data/portfolioData'
 
-const Footer = () => {
+export default function Footer() {
+  const { footer } = portfolioData
+
   return (
-    <footer className="py-8 px-6 border-t border-white/10">
-      <div className="max-w-6xl mx-auto text-center text-slate-400">
-        {portfolioData.footer.text}
-      </div>
+    <footer className="max-w-6xl mx-auto px-6 md:px-8 py-8 border-t border-carbon-700 flex items-center justify-center sm:justify-start">
+      <p className="font-mono text-[11px] text-carbon-500">{footer.text}</p>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}
