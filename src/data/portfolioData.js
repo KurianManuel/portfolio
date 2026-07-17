@@ -25,11 +25,11 @@ export const portfolioData = {
     categories: [
       {
         category: "Security",
-        items: ["Network Security", "Web Application Security", "Cryptography", "Digital Forensics", "Penetration Testing"]
+        items: ["Network Security", "Web Application Security", "Cryptography", "Digital Forensics"]
       },
       {
         category: "Tools",
-        items: ["Kali Linux", "Burp Suite", "Wireshark", "Nmap", "Metasploit"]
+        items: ["Kali Linux", "Burp Suite", "Wireshark", "Nmap"]
       },
       {
         category: "Programming",
