@@ -23,14 +23,10 @@ const Experience = () => {
                     {exp.title}
                   </h3>
                   <p className="text-xl text-slate-300 mb-3">
-                    {exp.company}
+                    {exp.org}
                   </p>
                   
                   <div className="flex flex-wrap gap-4 text-slate-400">
-                    <div className="flex items-center gap-2">
-                      <MapPin size={16} />
-                      <span>{exp.location}</span>
-                    </div>
                     <div className="flex items-center gap-2">
                       <Calendar size={16} />
                       <span>{exp.duration}</span>
@@ -41,7 +37,7 @@ const Experience = () => {
               
               <div className="mt-6 pt-6 border-t border-white/10">
                 <div className="space-y-3">
-                  {exp.description.map((desc, descIdx) => (
+                  {exp.points.map((desc, descIdx) => (
                     <div key={descIdx} className="flex items-start gap-3 text-slate-300">
                       <CheckCircle size={20} className="text-blue-400 flex-shrink-0 mt-0.5" />
                       <span className="leading-relaxed">{desc}</span>

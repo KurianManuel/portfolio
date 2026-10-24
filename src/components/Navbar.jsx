@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Github, Linkedin, Mail, Menu, X } from 'lucide-react'
 import { portfolioData } from '../data/portfolioData'
 
 const NAV_ITEMS = [
-  { label: 'projects', href: '#projects' },
-  { label: 'skills', href: '#skills' },
-  { label: 'about', href: '#about' },
-  { label: 'contact', href: '#contact' },
+  { label: 'home', to: '/' },
+  { label: 'projects', to: '/projects' },
+  { label: 'skills', to: '/skills' },
+  { label: 'about', to: '/about' },
+  { label: 'contact', to: '/contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -19,10 +22,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (href) => {
-    setMobileOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const isActive = (to) => location.pathname === to
 
   return (
     <header
@@ -31,9 +31,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
-        <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+        <Link
+          to="/"
           className="flex items-center"
           aria-label="Kurian Manuel — back to top"
         >
@@ -42,18 +41,18 @@ export default function Navbar() {
             alt="KM"
             className="w-8 h-8 transition-all duration-150 opacity-80 hover:opacity-100"
           />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className="nav-link"
+            <Link
+              key={item.to}
+              to={item.to}
+              className={`nav-link ${isActive(item.to) ? 'text-lime' : ''}`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
         </div>
 
@@ -83,13 +82,14 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-carbon-950 border-b border-carbon-700 px-6 py-6 flex flex-col gap-5">
           {NAV_ITEMS.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className="font-mono text-sm uppercase tracking-widest text-slate-secondary text-left"
+            <Link
+              key={item.to}
+              to={item.to}
+              onClick={() => setMobileOpen(false)}
+              className={`font-mono text-sm uppercase tracking-widest text-left ${isActive(item.to) ? 'text-lime' : 'text-slate-secondary'}`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
           <div className="flex items-center gap-5 pt-2">
             <a href={portfolioData.social.github} target="_blank" rel="noopener noreferrer" className="text-slate-muted">

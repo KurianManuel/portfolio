@@ -1,5 +1,5 @@
 import { portfolioData } from '../data/portfolioData'
-import { ArrowDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import ASCIIText from './ASCIIText/ASCIIText'
 
@@ -95,9 +95,6 @@ function Packet({ startNode }) {
 
 export default function Hero() {
   const { hero } = portfolioData
-
-  const scrollToProjects = () => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
-  const scrollToContact = () => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
 
   // Deduplicated edge list from adjacency
   const edges = []
@@ -216,22 +213,15 @@ export default function Hero() {
         </p>
 
         <div className="opacity-0 animate-fade-up-delay flex flex-col sm:flex-row items-start gap-4">
-          <button onClick={scrollToProjects} className="btn-primary w-full sm:w-auto">
+          <Link to="/projects" className="btn-primary w-full sm:w-auto">
             {hero.ctaPrimary}
-          </button>
-          <button onClick={scrollToContact} className="btn-secondary w-full sm:w-auto">
+          </Link>
+          <Link to="/contact" className="btn-secondary w-full sm:w-auto">
             {hero.ctaSecondary}
-          </button>
+          </Link>
         </div>
       </div>
 
-      <button
-        onClick={scrollToProjects}
-        className="absolute bottom-10 text-carbon-500 hover:text-lime-muted transition-colors duration-200 animate-bounce"
-        aria-label="Scroll down"
-      >
-        <ArrowDown size={18} strokeWidth={1.5} />
-      </button>
-    </section>
+      </section>
   )
 }
